@@ -24,7 +24,8 @@ while True:
         query_inventory = pop_init.readqry(values[0])
         pop_sub_layout = [[]]
         for query in query_inventory:
-              query_inventory[0].append(sg.Button(query))
+            query_inventory[0].append(sg.Text(query))
+        pop_sub_window = sg.Window("Past Queries [from this session]:", layout)
               
               
 pop_win.close()
