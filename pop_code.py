@@ -9,7 +9,22 @@ class Pop():
     return self.queries
   
 pop_layout = [[sg.Input(), sg.Button("SAVE") [sg.Button("OPEN")]]
+pop_win = sg.Window("Pop", pop_layout)
 pop_query = []
 
-pop_init = Pop(pop_layout, sg.Window("Pop", pop_layout), pop_query)
+pop_init = Pop(pop_layout, pop_win, pop_query)
 
+while True:
+    event, values = pop_win.read()
+    if event == sg.WIN_CLOSED:
+        break
+    if event == "SAVE":
+        pop_init.addqry(values[0])
+    if event == "OPEN":
+        query_inventory = pop_init.readqry(values[0])
+        pop_sub_layout = [[]]
+        for query in query_inventory:
+              query_inventory[0].append(sg.Button(query))
+              
+              
+pop_win.close()
