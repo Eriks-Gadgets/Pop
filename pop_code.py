@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+sg.theme("DarkRed1")
 pop_layout = [[sg.Input(), sg.Button("SAVE")], [sg.Button("OPEN")]]
 pop_win = sg.Window("Pop", pop_layout)
 pop_query = []
